@@ -1,0 +1,91 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 20px;
+  }
+ 
+  .app h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #213c4e;
+  }
+ 
+  .selectors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+ 
+  .selectors label, .selectors select, .selectors button {
+    margin: 5px 0;
+  }
+ 
+  button {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+ 
+  .chart-container {
+    margin-top: 30px;
+    width: 80%;
+    max-width: 800px;
+  }
+ 
+  /* Hide the actual file input */
+input[type="file"] {
+    display: none;
+  }
+ 
+  /* Custom styled button */
+  .custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #345f7c; /* Customize this color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+ 
+  .custom-file-upload:hover {
+    background-color: #213c4e; /* Customize hover color */
+  }
+ 
+  /* Custom styled Analyze button */
+.analyze-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #345f7c; /* Customize this color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+ 
+  .analyze-button:hover {
+    background-color: #213c4e; /* Customize hover color */
+  }
+ 
+ 
+ 
+  @media (max-width: 600px) {
+    .chart-container {
+      width: 90%;
+    }
+  }
+ 

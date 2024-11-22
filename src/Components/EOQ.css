@@ -1,0 +1,87 @@
+ .body-eoq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: whitesmoke;
+  } 
+ 
+  .app-eoq {
+    max-width: 500px;
+    width: 100%;
+    padding: 40px;
+    background-color: rgb(228, 234, 240);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+ 
+  .h1-eoq {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #213c4e;
+  }
+ 
+  .input-container-eoq label:nth-of-type(1) {
+    color: #345f7c; /* Demand Rate label color */
+  }
+ 
+  .input-container-eoq label:nth-of-type(2) {
+    color: #345f7c; /* Ordering Cost per Order label color */
+  }
+ 
+  .input-container-eoq label:nth-of-type(3) {
+    color: #345f7c; /* Holding Cost per Unit per Year label color */
+  }
+  .input-container-eoq {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+ 
+  .input-container-eoq label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+ 
+  .input-container-eoq input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+ 
+  .small-button-eoq {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #345f7c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+ 
+  .small-button-eoq:hover {
+    background-color: #213c4e;
+  }
+ 
+  .result-eoq {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+ 
+  .chart-container-eoq {
+    margin-top: 20px;
+  }
+ 
+  .chart-container-eoq canvas {
+    max-height: 300px; /* Reduce the height of the chart */
+    max-width: 100%;
+  }

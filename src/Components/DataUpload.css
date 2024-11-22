@@ -1,0 +1,127 @@
+/* Overall Page Styling */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+  
+  /* Upload Container Styling */
+  .upload-container {
+    padding: 15px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Dropzone Styling */
+  .dropzone {
+    border: 1.5px dashed #007bff;
+    padding: 15px;
+    border-radius: 6px;
+    background-color: #e3f2fd;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropzone:hover {
+    background-color: #d1ecf9;
+  }
+  
+  .dropzone-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #213c4e;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .icon {
+    margin-right: 5px;
+    font-size: 16px;
+  }
+  
+  /* Error Text */
+  .error-text {
+    color: red;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  /* Button Container */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+  }
+  
+  .submit-button {
+    padding: 8px 16px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #213c4e;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #1a2f3e;
+  }
+  
+  /* Data Preview Styling (Full Width) */
+  .data-preview {
+    width: 100vw;
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .data-preview h3 {
+    color: #213c4e;
+    font-size: 18px;
+    margin-bottom: 8px;
+    text-align: left;
+    padding-left: 15px; /* Align text with data table */
+  }
+  
+  /* Table Styling */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .data-table th,
+  .data-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+    text-align: left;
+  }
+  
+  .data-table th {
+    background-color: #f1f1f1;
+    color: #213c4e;
+    font-weight: bold;
+  }
+  
+  .data-table td {
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  .data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  

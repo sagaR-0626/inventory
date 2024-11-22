@@ -1,0 +1,156 @@
+/* General Styles */
+.homePage-1 {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* Pure white background */
+    min-height: 05vh; /* Ensure the homepage fills the screen */
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px; /* Prevent content from overlapping the fixed navbar */
+}
+
+/* Navbar Styles */
+.mainNavbar-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed; /* Sticks to the top of the page */
+    width: 96%; /* Full width */
+    z-index: 1000; /* Ensures it stays on top of other content */
+    background: none; /* Remove any background */
+    box-shadow: none; /* Remove shadow */
+    color: #333; /* Text color */
+}
+
+/* Logo Styles */
+.logo {
+    width: 30px; /* Adjust the size of the logo */
+    height: 15px;
+    top: 20px;
+}
+
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Moves links and profile section to the right */
+}
+
+.navbar-link {
+    color: #333; /* Ensure good contrast with transparent background */
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar-link:hover, .navbar-link:focus {
+    color: #666; /* Slightly darker on hover */
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+}
+
+.profileLogo {
+    color: #333;
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.profileLogo:hover, .profileLogo:focus {
+    color: #666;
+    text-decoration: underline;
+}
+
+.logout-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-link:hover, .logout-link:focus {
+    color: #666;
+    text-decoration: underline;
+}
+
+/* Dropdown Styles */
+.navbar-dropdown {
+    position: relative;
+    margin: 0 15px;
+}
+
+.navbar-dropdown .navbar-link {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff; /* Keep dropdown background white for readability */
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 90px;
+}
+
+.navbar-dropdown:hover .dropdown-content, .navbar-dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: #f0f0f0;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .mainNavbar-1 {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-end; /* Align to the right for mobile view */
+    }
+
+    .navbar-link {
+        margin: 5px 0;
+    }
+
+    .dropdown-content {
+        width: 100%;
+    }
+
+    .dropdown-item {
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    .profileLogo {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profileLogo {
+        font-size: 16px;
+    }
+}

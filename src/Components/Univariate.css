@@ -1,0 +1,123 @@
+.body-uni {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.h1-div-uni {
+  color: #213c4e;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.h2-div-uni {
+  color: #213c4e;
+  margin-top: 20px;
+}
+
+.container-uni {
+  max-width: 700px; /* Increased width for a broader box */
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.file-upload-wrapper-uni {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.file-input-uni {
+  display: none; /* Hide default file input */
+}
+
+/* Custom Choose File button with the same style as the Upload button */
+.file-label-uni {
+  background-color: #345f7c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  text-align: center;
+}
+
+.file-label-uni:hover {
+  background-color: #2a4758;
+}
+
+.file-name-uni {
+  flex: 2;
+  text-align: left;
+  color: #666;
+  font-size: 14px;
+}
+
+.button-uni {
+  background-color: #345f7c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.button-uni:hover {
+  background-color: #2a4758;
+}
+
+.column-select-wrapper-uni {
+  margin-top: 20px;
+}
+
+.select-uni {
+  padding: 10px;
+  border: 2px solid #345f7c;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 16px;
+  background-color: white;
+}
+
+.select-uni:focus {
+  outline: none;
+  border-color: #213c4e;
+}
+
+.analyze-button-uni {
+  background-color: #213c4e;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.analyze-button-uni:hover {
+  background-color: #1a2d3e;
+}
+
+.result-container-uni {
+  margin-top: 30px;
+  text-align: left;
+}

@@ -1,0 +1,51 @@
+.demand-analysis-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.h1-d {
+    text-align: center;
+    color: #333;
+}
+
+.demand-analysis-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.demand-analysis-form input[type="file"] {
+    margin-bottom: 15px;
+}
+
+.demand-analysis-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.demand-analysis-form button {
+    padding: 10px;
+    background-color: #213c4e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 50px;
+}
+
+.demand-analysis-form button:hover {
+    background-color: #213c4e;
+}
+
+.message {
+    margin-top: 20px;
+    text-align: center;
+    color: #007bff;
+}

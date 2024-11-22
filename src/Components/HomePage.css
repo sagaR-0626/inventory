@@ -1,0 +1,116 @@
+/* General Styles */
+.heading-1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+.content {
+    padding: 15px; /* Reduced padding */
+    text-align: center;
+    flex: 1;
+}
+
+/* Full-screen Background Image */
+.background-image {
+    position: relative;
+    background-size: cover; /* Ensure the image covers the entire area */
+    background-position: center; /* Center the image */
+    width: 100%;
+    height: 80vh; /* Reduced to 80% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px; /* Reduced padding */
+    box-sizing: border-box; /* Include padding in layout calculations */
+}
+
+/* Logo styling at the top-left of the page (fixed like the navbar) */
+.header-logo-home {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000; /* Ensure the logo stays on top */
+}
+
+.home-logo {
+  height: 25px; /* Same height as in LoginPage */
+  width: auto;  /* Maintain aspect ratio */
+}
+
+/* Styling for the top paragraph */
+.p1 {
+    font-size: 18px; /* Reduced font size */
+    font-weight: bold;
+    max-width: 800px;
+    text-align: center;
+    color: #ffffff;
+    background-color: rgba(64, 63, 63, 0.5); /* Semi-transparent background */
+    padding: 10px; /* Reduced padding */
+    border-radius: 8px;
+    margin-bottom: 30px; /* Reduced margin */
+    z-index: 1; /* Ensure it appears above the background */
+}
+
+/* Overlay Content Box */
+.content-overlay {
+    position: absolute;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark translucent overlay */
+    padding: 20px 15px; /* Reduced padding */
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px; /* Reduced max width */
+    z-index: 2; /* Higher z-index to ensure it appears above the background */
+    margin-bottom: 20px; /* Reduced margin */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optional subtle shadow for effect */
+}
+
+/* Styling for the header text */
+.h2-homepage {
+    font-size: 30px; /* Reduced font size */
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Styling for the secondary paragraph text */
+.content-overlay p {
+    font-size: 16px; /* Reduced font size */
+    color: #ffffff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .content-overlay {
+        max-width: 90%; /* Adjust the width for smaller screens */
+        padding: 15px;
+    }
+
+    .p1 {
+        font-size: 16px; /* Reduced font size */
+        padding: 8px; /* Reduced padding */
+    }
+
+    .h2-homepage {
+        font-size: 24px; /* Reduced font size */
+    }
+
+    .content-overlay p {
+        font-size: 14px; /* Reduced font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .h2-homepage {
+        font-size: 20px; /* Further reduced font size */
+    }
+
+    .content-overlay p {
+        font-size: 12px; /* Further reduced font size */
+    }
+
+    .p1 {
+        font-size: 14px; /* Further reduced font size */
+    }
+}
