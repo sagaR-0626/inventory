@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate
 import videoFile from './video.mp4'; // Import video from the same folder
 import logo from './logo.png'; // Import logo image (place logo.png in the same folder)
-
+ 
 function LoginPage() {
   const [formData, setFormData] = useState({ username: '', password: '' });
+  const navigate = useNavigate(); // Initialize the navigate function
  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
-
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Login Data:', formData);
+ 
+    const { username, password } = formData;
+ 
+    // Check username and password
+    if (username === 'test' && password === 'pass') {
+      console.log('Login successful');
+      navigate('/home'); // Redirect to homepage
+    } else {
+      alert('Invalid username or password');
+    }
   };
-
+ 
   const styles = {
     container: {
       display: 'flex',
@@ -65,7 +75,7 @@ function LoginPage() {
     input: {
       width: '100%',
       padding: '10px',
-      margin: '10px 0',
+      margin: '10px -10px',
       borderRadius: '4px',
       border: '1px solid #ccc',
       fontSize: '14px',
@@ -79,7 +89,6 @@ function LoginPage() {
       borderRadius: '4px',
       cursor: 'pointer',
       fontSize: '16px',
-      marginTop: '20px',
     },
     signUpLink: {
       display: 'block',
@@ -90,52 +99,53 @@ function LoginPage() {
       textDecoration: 'none',
     },
   };
-
+ 
   return (
     <div style={styles.container}>
-      {/* Logo */}
-      <img src={logo} alt="Logo" style={styles.logo} />
- 
-      {/* Login Form */}
-      <form style={styles.form} onSubmit={handleSubmit}>
-        <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' }}>Login</h2>
-        <input
-          style={styles.input}
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
-        <input
-          style={styles.input}
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit" style={styles.button}>
-          Login
-        </button>
- 
-        {/* SignUp Link */}
-        <Link to="/signuppage" style={styles.signUpLink}>
-          Don't have an account? SignUp
-        </Link>
-      </form>
- 
-      {/* Video Container */}
+      {/* Video Section */}
       <div style={styles.videoContainer}>
         <video style={styles.video} autoPlay loop muted>
           <source src={videoFile} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        {/* Logo Over Video */}
+        <img src={logo} alt="Logo" style={styles.logo} />
+      </div>
+ 
+      {/* Login Form Section */}
+      <div style={styles.formContainer}>
+        <form style={styles.form} onSubmit={handleSubmit}>
+          <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' }}>Login</h2>
+          <input
+            style={styles.input}
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+          <input
+            style={styles.input}
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit" style={styles.button}>
+            Login
+          </button>
+ 
+          {/* SignUp Link */}
+          <Link to="/signup" style={styles.signUpLink}>
+            Don't have an account? SignUp
+          </Link>
+        </form>
       </div>
     </div>
   );
 }
-
+ 
 export default LoginPage;
