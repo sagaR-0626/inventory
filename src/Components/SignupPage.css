@@ -2,10 +2,19 @@
 .card {
   max-width: 400px; /* Reduced width */
   margin: 17px auto; /* Reduced margin */
-  padding: 20px 30px; /* Reduced padding */
+  padding: 30px 40px; /* Reduced padding */
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  position: relative;
+}
+
+/* Separator to create a gap between image and card */
+.image-separator {
+  width: 200%;
+  height: 50px; /* Adjust gap size as needed */
+  background-color: #f9f9f9; /* Subtle background color for separation */
+  margin-bottom: 50px; /* Adjust overlap with the card */
 }
 
 /* Custom Styling for Input Fields */
@@ -58,16 +67,19 @@ button[type="submit"]:hover,
   text-align: center; /* Center the error message */
 }
 
-/* Logo and image styling */
+/* Logo styling */
 .logo1 {
-  max-width: 200px; /* Reduced logo size */
-  display: block;
-  margin: 0 auto;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 280px;
 }
 
 .image {
-  width: 70%; /* Reduced image width */
-  margin-top: 15px; /* Reduced margin */
+  position: relative;
+  width: 130%; /* Reduced image width */
+  margin-top: 60px; /* Reduced margin */
+  margin-left: -225px;
   border-radius: 8px;
   display: block;
   margin-bottom: 15px; /* Reduced margin */
@@ -125,8 +137,9 @@ button[type="submit"]:hover,
 
 /* To ensure the form content is centered and doesn't overlap */
 .container-fluid {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 100px;
+  margin-right: -100px;
+  padding-bottom: 50px;
 }
 
 /* Mobile responsiveness */

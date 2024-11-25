@@ -1,21 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import videoFile from './video.mp4'; // Import video from the same folder
 import logo from './logo.png'; // Import logo image (place logo.png in the same folder)
- 
+
 function LoginPage() {
   const [formData, setFormData] = useState({ username: '', password: '' });
- 
+  const navigate = useNavigate(); // Initialize useNavigate for navigation
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login Data:', formData);
+
+    // Here, you can add validation or API calls for authentication
+    const { username, password } = formData;
+
+    // Temporary mock login validation
+    if (username === 'user' && password === 'password') {
+      // Save login state
+      localStorage.setItem('isLoggedIn', 'true');
+
+      // Redirect to home
+      navigate('/home');
+    } else {
+      alert('Invalid username or password. Please try again.');
+    }
   };
- 
+
   const styles = {
     container: {
       display: 'flex',
@@ -37,15 +52,13 @@ function LoginPage() {
     input: {
       width: '100%',
       padding: '10px',
-      margin: '10px -10px',
+      margin: '10px 0',
       borderRadius: '4px',
       border: '1px solid #ccc',
       fontSize: '14px',
     },
     button: {
-      width: '50%',
-      marginTop: '30px',
-      marginLeft: '70px',
+      width: '100%',
       padding: '10px',
       backgroundColor: '#007bff',
       color: '#fff',
@@ -53,6 +66,7 @@ function LoginPage() {
       borderRadius: '4px',
       cursor: 'pointer',
       fontSize: '16px',
+      marginTop: '20px',
     },
     videoContainer: {
       position: 'absolute',
@@ -85,12 +99,12 @@ function LoginPage() {
       textDecoration: 'none',
     },
   };
- 
+
   return (
     <div style={styles.container}>
       {/* Logo */}
       <img src={logo} alt="Logo" style={styles.logo} />
- 
+
       {/* Login Form */}
       <form style={styles.form} onSubmit={handleSubmit}>
         <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' }}>Login</h2>
@@ -115,13 +129,13 @@ function LoginPage() {
         <button type="submit" style={styles.button}>
           Login
         </button>
- 
+
         {/* SignUp Link */}
-        <Link to="/signuppage" style={styles.signUpLink}>
+        <Link to="/signup" style={styles.signUpLink}>
           Don't have an account? SignUp
         </Link>
       </form>
- 
+
       {/* Video Container */}
       <div style={styles.videoContainer}>
         <video style={styles.video} autoPlay loop muted>
@@ -132,6 +146,5 @@ function LoginPage() {
     </div>
   );
 }
- 
+
 export default LoginPage;
- 
