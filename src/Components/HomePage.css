@@ -13,7 +13,7 @@
 /* Full-screen Background Image */
 .background-image {
     position: relative;
-    background-image: url("C:\\IM\\im-page\\public\\IM image.jpg"); /* Replace with your image file path */
+    /*background-image: url("C:\\IM\\im-page\\public\\IM image.jpg");  Replace with your image file path */
     background-size: cover; /* Ensure the image covers the entire area */
     background-position: center; /* Center the image */
     width: 100%;
