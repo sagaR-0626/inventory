@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import videoFile from './video.mp4'; // Import video from the same folder
 import logo from './logo.png'; // Import logo image (place logo.png in the same folder)
 
 function LoginPage() {
   const [formData, setFormData] = useState({ username: '', password: '' });
-  const navigate = useNavigate(); // Initialize useNavigate for navigation
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -15,39 +14,53 @@ function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login Data:', formData);
-
-    // Here, you can add validation or API calls for authentication
-    const { username, password } = formData;
-
-    // Temporary mock login validation
-    if (username === 'user' && password === 'password') {
-      // Save login state
-      localStorage.setItem('isLoggedIn', 'true');
-
-      // Redirect to home
-      navigate('/home');
-    } else {
-      alert('Invalid username or password. Please try again.');
-    }
   };
 
   const styles = {
     container: {
       display: 'flex',
-      justifyContent: 'flex-end', // Aligns the container to the right
-      alignItems: 'center', // Keeps it vertically centered
       height: '100vh',
       backgroundColor: '#f5f5f5',
-      paddingRight: '220px', // Optional: Adds some spacing from the right edge
-      position: 'relative', // Allows absolute positioning of the logo
+    },
+    videoContainer: {
+      flex: 1, // Takes half the width of the page
+      position: 'relative', // Allows positioning of the logo over the video
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      overflow: 'hidden', // Ensures no overflow issues
+    },
+    video: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      margin: 0, // Removes any default margins
+      padding: 0, // Removes any default padding
+      border: 0, // Removes any border
+    },
+    logo: {
+      position: 'absolute', // Positions the logo over the video
+      top: '20px', // Adjust the vertical position
+      left: '20px', // Adjust the horizontal position
+      width: 'auto', // Set the logo width
+      height: '30px', // Maintain aspect ratio
+    },
+    formContainer: {
+      flex: 1, // Takes the other half of the page
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '20px',
+      position: 'relative',
     },
     form: {
+      width: '300px',
       padding: '20px',
       border: '1px solid #ddd',
       borderRadius: '8px',
       backgroundColor: '#fff',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-      width: '300px',
     },
     input: {
       width: '100%',
@@ -68,28 +81,6 @@ function LoginPage() {
       fontSize: '16px',
       marginTop: '20px',
     },
-    videoContainer: {
-      position: 'absolute',
-      top: '100px',
-      left: '50px',
-      width: '550px',
-      height: '450px',
-      border: '1px solid #ddd',
-      borderRadius: '8px',
-      overflow: 'hidden',
-    },
-    video: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-    },
-    logo: {
-      position: 'absolute',
-      top: '20px',
-      left: '20px',
-      width: 'auto', // Adjust the size of the logo
-      height: '30px',
-    },
     signUpLink: {
       display: 'block',
       textAlign: 'center',
@@ -104,7 +95,7 @@ function LoginPage() {
     <div style={styles.container}>
       {/* Logo */}
       <img src={logo} alt="Logo" style={styles.logo} />
-
+ 
       {/* Login Form */}
       <form style={styles.form} onSubmit={handleSubmit}>
         <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' }}>Login</h2>
@@ -129,13 +120,13 @@ function LoginPage() {
         <button type="submit" style={styles.button}>
           Login
         </button>
-
+ 
         {/* SignUp Link */}
-        <Link to="/signup" style={styles.signUpLink}>
+        <Link to="/signuppage" style={styles.signUpLink}>
           Don't have an account? SignUp
         </Link>
       </form>
-
+ 
       {/* Video Container */}
       <div style={styles.videoContainer}>
         <video style={styles.video} autoPlay loop muted>
