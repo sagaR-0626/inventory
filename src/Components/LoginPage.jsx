@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate
 import videoFile from './video.mp4'; // Import video from the same folder
 import logo from './logo.png'; // Import logo image (place logo.png in the same folder)
- 
+
 function LoginPage() {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const navigate = useNavigate(); // Initialize the navigate function
- 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
- 
+
     const { username, password } = formData;
- 
+
     // Check username and password
     if (username === 'test' && password === 'pass') {
       console.log('Login successful');
@@ -25,7 +25,7 @@ function LoginPage() {
       alert('Invalid username or password');
     }
   };
- 
+
   const styles = {
     container: {
       display: 'flex',
@@ -47,6 +47,7 @@ function LoginPage() {
       margin: 0, // Removes any default margins
       padding: 0, // Removes any default padding
       border: 0, // Removes any border
+      overflow: 'hidden', // Ensures no overflow issues
     },
     logo: {
       position: 'absolute', // Positions the logo over the video
@@ -55,17 +56,42 @@ function LoginPage() {
       width: 'auto', // Set the logo width
       height: '30px', // Maintain aspect ratio
     },
+    mainContainer: {
+      display: 'flex',
+      flexDirection: 'column', // Stack header and form vertically
+      justifyContent: 'center', // Center contents vertically
+      alignItems: 'center', // Center contents horizontally
+      padding: '20px',
+      position: 'absolute',
+      top: '20px',
+      left: '50px',
+      right: '20px',
+      bottom: '30px',
+      zIndex: '2',
+      overflow: 'hidden', // Ensures no overflow issues
+    },
+    header: {
+      textAlign: 'center', // Center align the text
+      fontSize: '50px', // Adjust the size of the header
+      fontWeight: 'bold', // Make the header bold
+      padding: '40px', // Add padding around the header
+      color: '#fff', // White text color
+      width: '100%',
+      boxSizing: 'border-box', // Ensure padding is included in the width
+      fontFamily: 'Times New Roman', // Roman font style
+      animation: 'fadeIn 2s ease-out', // Apply fade-in animation
+    },
     formContainer: {
-      flex: 1, // Takes the other half of the page
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
       padding: '20px',
       position: 'relative',
+      width: '150%',
     },
     form: {
-      width: '300px',
+      width: '350px',
       padding: '20px',
       border: '1px solid #ddd',
       borderRadius: '8px',
@@ -99,7 +125,7 @@ function LoginPage() {
       textDecoration: 'none',
     },
   };
- 
+
   return (
     <div style={styles.container}>
       {/* Video Section */}
@@ -111,41 +137,64 @@ function LoginPage() {
         {/* Logo Over Video */}
         <img src={logo} alt="Logo" style={styles.logo} />
       </div>
- 
-      {/* Login Form Section */}
-      <div style={styles.formContainer}>
-        <form style={styles.form} onSubmit={handleSubmit}>
-          <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' }}>Login</h2>
-          <input
-            style={styles.input}
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-          <input
-            style={styles.input}
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit" style={styles.button}>
-            Login
-          </button>
- 
-          {/* SignUp Link */}
-          <Link to="/signup" style={styles.signUpLink}>
-            Don't have an account? SignUp
-          </Link>
-        </form>
+
+      {/* Main Content Section: Header + Login Form */}
+      <div style={styles.mainContainer}>
+        {/* Header Section */}
+        <div style={styles.header}>
+          Inventory Modelling
+        </div>
+
+        {/* Login Form Section */}
+        <div style={styles.formContainer}>
+          <form style={styles.form} onSubmit={handleSubmit}>
+            <h2 style={{ marginBottom: '40px', textAlign: 'center', color: '#333' }}>Login</h2>
+            <input
+              style={styles.input}
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+            <input
+              style={styles.input}
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <button type="submit" style={styles.button}>
+              Login
+            </button>
+
+            {/* SignUp Link */}
+            <Link to="/signup" style={styles.signUpLink}>
+              Don't have an account? SignUp
+            </Link>
+          </form>
+        </div>
       </div>
     </div>
   );
 }
- 
+
 export default LoginPage;
+
+// Add animation keyframes for fade-in effect
+const styleSheet = document.styleSheets[0];
+styleSheet.insertRule(`
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px); /* Start from above */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* End in original position */
+    }
+  }
+`, styleSheet.cssRules.length);

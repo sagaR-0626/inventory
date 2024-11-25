@@ -10,23 +10,38 @@
     flex: 1;
 }
 
-/* Full-screen Background Image */
-.background-image {
+/* Full-screen Background Video */
+.background-container {
     position: relative;
-    /*background-image: url("C:\\IM\\im-page\\public\\IM image.jpg");  Replace with your image file path */
-    background-size: cover; /* Ensure the image covers the entire area */
-    background-position: center; /* Center the image */
     width: 100%;
-    height: 100vh; /* Reduced to 80% of the viewport height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    padding: 10px; /* Reduced padding */
-    box-sizing: border-box; /* Include padding in layout calculations */
+    height: 100vh;
+    overflow: hidden;
 }
 
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensure the video stays behind the content */
+}
+
+/* Overlay content box */
+.content {
+    position: relative;
+    z-index: 1; /* Ensure the content stays above the video */
+    padding-top: 60px; /* Adjust if you need more space below the navbar */
+}
+
+/* Styling for the overlay text */
+.overlay-text {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+}
 
 /* Logo styling at the top-left of the page (fixed like the navbar) */
 .header-logo-home {

@@ -140,6 +140,7 @@ button[type="submit"]:hover,
   padding-top: 100px;
   margin-right: -100px;
   padding-bottom: 50px;
+  overflow: hidden; /* Hide the scrollbar in the container */
 }
 
 /* Mobile responsiveness */
@@ -178,4 +179,10 @@ a.text-danger {
 
 a.text-danger:hover {
   color: #000;
+}
+
+/* Hide scrollbars */
+body, html {
+  overflow: hidden; /* Hide both vertical and horizontal scrollbars */
+  height: 100%; /* Ensure the height is 100% to avoid content overflow */
 }
