@@ -4,7 +4,7 @@
     margin: 0;
 }
 
-.content {
+.background-content {
     padding: 15px; /* Reduced padding */
     text-align: center;
     flex: 1;
@@ -16,6 +16,9 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
 }
 
 .background-video {
@@ -29,7 +32,7 @@
 }
 
 /* Overlay content box */
-.content {
+.background-content {
     position: relative;
     z-index: 1; /* Ensure the content stays above the video */
     padding-top: 60px; /* Adjust if you need more space below the navbar */
@@ -45,15 +48,15 @@
 
 /* Logo styling at the top-left of the page (fixed like the navbar) */
 .header-logo-home {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000; /* Ensure the logo stays on top */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000; /* Ensure the logo stays on top */
 }
 
 .home-logo {
-  height: 25px; /* Same height as in LoginPage */
-  width: auto;  /* Maintain aspect ratio */
+    height: 25px; /* Same height as in LoginPage */
+    width: auto;  /* Maintain aspect ratio */
 }
 
 /* Styling for the top paragraph */

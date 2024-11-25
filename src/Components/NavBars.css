@@ -2,10 +2,11 @@
 .homePage-1 {
     font-family: 'Arial', sans-serif;
     background-color: #ffffff; /* Pure white background */
-    min-height: 100vh; /* Ensure the homepage fills the screen */
+   
     display: flex;
     flex-direction: column;
-    padding-top: 20px; /* Prevent content from overlapping the fixed navbar */
+    margin: 0; /* Ensure no margin around the body */
+    padding: 0; /* Ensure no padding around the body */
 }
 
 /* Navbar Styles */
@@ -15,11 +16,12 @@
     align-items: center;
     padding: 10px 20px;
     position: fixed; /* Sticks to the top of the page */
-    width: 96%; /* Full width */
+    top: 0; /* Fix it at the top */
+    left: 0; /* Fix it at the left */
+    width: 100%; /* Full width of the screen */
     z-index: 1000; /* Ensures it stays on top of other content */
-    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
-    box-shadow: none; /* Remove shadow */
-    color: #333; /* Text color */
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
     backdrop-filter: blur(10px); /* Optional: add a slight blur effect to the background */
 }
 
@@ -27,7 +29,6 @@
 .logo {
     width: 30px; /* Adjust the size of the logo */
     height: 15px;
-    top: 20px;
 }
 
 /* Navbar Links */
@@ -94,7 +95,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #fff; /* Keep dropdown background white for readability */
+
     border: 1px solid #ccc;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     width: 90px;
