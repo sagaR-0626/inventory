@@ -17,8 +17,15 @@ function LoginPage() {
 
     const { username, password } = formData;
 
+    // Trim spaces from username and password to avoid any issues with extra spaces
+    const trimmedUsername = username.trim();
+    const trimmedPassword = password.trim();
+
+    console.log('Username:', trimmedUsername);  // Log the username
+    console.log('Password:', trimmedPassword);  // Log the password
+
     // Check username and password
-    if (username === 'test' && password === 'pass') {
+    if (trimmedUsername === 'Test' && trimmedPassword === 'Password') {
       console.log('Login successful');
       navigate('/home'); // Redirect to homepage
     } else {
