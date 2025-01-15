@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate
+import { useNavigate, Link } from 'react-router-dom'; // Import Link and useNavigate
 import videoFile from './video.mp4'; // Import video from the same folder
 import logo from './logo.png'; // Import logo image (place logo.png in the same folder)
 
-function LoginPage() {
+function LoginPage({ setIsLoggedIn }) {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const navigate = useNavigate(); // Initialize the navigate function
 
@@ -13,124 +13,23 @@ function LoginPage() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the form from submitting
 
-    const { username, password } = formData;
+    // Basic validation for username and password
+    if (formData.username === '' || formData.password === '') {
+      alert('Both fields are required!');
+      return;
+    }
 
-    // Trim spaces from username and password to avoid any issues with extra spaces
-    const trimmedUsername = username.trim();
-    const trimmedPassword = password.trim();
-
-    console.log('Username:', trimmedUsername);  // Log the username
-    console.log('Password:', trimmedPassword);  // Log the password
-
-    // Check username and password
-    if (trimmedUsername === 'Test' && trimmedPassword === 'Password') {
-      console.log('Login successful');
-      navigate('/home'); // Redirect to homepage
+    // Simulate successful login (replace with actual authentication logic)
+    if (formData.username === 'user' && formData.password === 'password') {
+      // Store login status in localStorage and set state
+      localStorage.setItem('isLoggedIn', 'true');
+      setIsLoggedIn(true);
+      navigate('/home'); // Redirect to home page
     } else {
       alert('Invalid username or password');
     }
-  };
-
-  const styles = {
-    container: {
-      display: 'flex',
-      height: '100vh',
-      backgroundColor: '#f5f5f5',
-    },
-    videoContainer: {
-      flex: 1, // Takes half the width of the page
-      position: 'relative', // Allows positioning of the logo over the video
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      overflow: 'hidden', // Ensures no overflow issues
-    },
-    video: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      margin: 0, // Removes any default margins
-      padding: 0, // Removes any default padding
-      border: 0, // Removes any border
-      overflow: 'hidden', // Ensures no overflow issues
-    },
-    logo: {
-      position: 'absolute', // Positions the logo over the video
-      top: '20px', // Adjust the vertical position
-      left: '20px', // Adjust the horizontal position
-      width: 'auto', // Set the logo width
-      height: '30px', // Maintain aspect ratio
-    },
-    mainContainer: {
-      display: 'flex',
-      flexDirection: 'column', // Stack header and form vertically
-      justifyContent: 'center', // Center contents vertically
-      alignItems: 'center', // Center contents horizontally
-      padding: '20px',
-      position: 'absolute',
-      top: '20px',
-      left: '50px',
-      right: '20px',
-      bottom: '30px',
-      zIndex: '2',
-      overflow: 'hidden', // Ensures no overflow issues
-    },
-    header: {
-      textAlign: 'center', // Center align the text
-      fontSize: '50px', // Adjust the size of the header
-      fontWeight: 'bold', // Make the header bold
-      padding: '40px', // Add padding around the header
-      color: '#fff', // White text color
-      width: '100%',
-      boxSizing: 'border-box', // Ensure padding is included in the width
-      fontFamily: 'Times New Roman', // Roman font style
-      animation: 'fadeIn 2s ease-out', // Apply fade-in animation
-    },
-    formContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: '20px',
-      position: 'relative',
-      width: '150%',
-    },
-    form: {
-      width: '350px',
-      padding: '20px',
-      border: '1px solid #ddd',
-      borderRadius: '8px',
-      backgroundColor: '#fff',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    },
-    input: {
-      width: '100%',
-      padding: '10px',
-      margin: '10px -10px',
-      borderRadius: '4px',
-      border: '1px solid #ccc',
-      fontSize: '14px',
-    },
-    button: {
-      width: '100%',
-      padding: '10px',
-      backgroundColor: '#007bff',
-      color: '#fff',
-      border: 'none',
-      borderRadius: '4px',
-      cursor: 'pointer',
-      fontSize: '16px',
-    },
-    signUpLink: {
-      display: 'block',
-      textAlign: 'center',
-      marginTop: '10px',
-      fontSize: '14px',
-      color: '#007bff',
-      textDecoration: 'none',
-    },
   };
 
   return (
@@ -148,14 +47,13 @@ function LoginPage() {
       {/* Main Content Section: Header + Login Form */}
       <div style={styles.mainContainer}>
         {/* Header Section */}
-        <div style={styles.header}>
-          Inventory Modelling
-        </div>
+        <div style={styles.header}>Inventory Modelling</div>
 
         {/* Login Form Section */}
         <div style={styles.formContainer}>
           <form style={styles.form} onSubmit={handleSubmit}>
             <h2 style={{ marginBottom: '40px', textAlign: 'center', color: '#333' }}>Login</h2>
+
             <input
               style={styles.input}
               type="text"
@@ -163,7 +61,6 @@ function LoginPage() {
               placeholder="Username"
               value={formData.username}
               onChange={handleChange}
-              required
             />
             <input
               style={styles.input}
@@ -172,7 +69,6 @@ function LoginPage() {
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              required
             />
             <button type="submit" style={styles.button}>
               Login
@@ -191,17 +87,103 @@ function LoginPage() {
 
 export default LoginPage;
 
-// Add animation keyframes for fade-in effect
-const styleSheet = document.styleSheets[0];
-styleSheet.insertRule(`
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px); /* Start from above */
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0); /* End in original position */
-    }
-  }
-`, styleSheet.cssRules.length);
+// Styles for the LoginPage component
+const styles = {
+  container: {
+    display: 'flex',
+    height: '100vh',
+    backgroundColor: '#f5f5f5',
+    position: 'relative',
+  },
+  videoContainer: {
+    flex: 1,
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden', // Ensures no overflow issues
+  },
+  video: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    margin: 0,
+    padding: 0,
+    border: 0,
+    overflow: 'hidden',
+  },
+  logo: {
+    position: 'absolute',
+    top: '20px',
+    left: '20px',
+    width: 'auto',
+    height: '30px',
+  },
+  mainContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '20px',
+    position: 'absolute',
+    top: '20px',
+    left: '50px',
+    right: '20px',
+    bottom: '30px',
+    zIndex: 2,
+    overflow: 'hidden',
+  },
+  header: {
+    textAlign: 'center',
+    fontSize: '50px',
+    fontWeight: 'bold',
+    padding: '40px',
+    color: '#fff',
+    width: '100%',
+    boxSizing: 'border-box',
+    fontFamily: 'Times New Roman',
+  },
+  formContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '20px',
+    position: 'relative',
+    width: '150%',
+  },
+  form: {
+    width: '350px',
+    padding: '20px',
+    border: '1px solid #ddd',
+    borderRadius: '8px',
+    backgroundColor: '#fff',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+  },
+  input: {
+    width: '100%',
+    padding: '10px',
+    margin: '10px 0',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
+    fontSize: '14px',
+  },
+  button: {
+    width: '100%',
+    padding: '10px',
+    backgroundColor: '#007bff',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontSize: '16px',
+  },
+  signUpLink: {
+    display: 'block',
+    textAlign: 'center',
+    marginTop: '10px',
+    fontSize: '14px',
+    color: '#007bff',
+    textDecoration: 'none',
+  },
+};
